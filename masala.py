@@ -2,12 +2,15 @@
 
 from sys import argv, stdin
 
-def parse(s, param):
+def parse(s):
+    s = s.replace(' ', '').replace('\n', '')
     ptr = 0
-    arr = [0] * param
+    arr = [0] * 1024
     for i in range(0, len(s)-1, 6):
         cmd = s[i:i+6]
-        if cmd == 'Masala':
+        if cmd == 'masala':
+            print ('masala')
+        elif cmd == 'Masala':
             ptr += 1
         elif cmd == 'mAsala':
             ptr -= 1
@@ -16,7 +19,7 @@ def parse(s, param):
         elif cmd == 'masAla':
             arr[ptr] -= 1
         elif cmd == 'masaLa':
-            arr[ptr] = stdin.read(1)
+            arr[ptr] = ord(stdin.read(1))
         elif cmd == 'masalA':
             print (arr[ptr], end='', flush=True)
         else:
@@ -25,13 +28,12 @@ def parse(s, param):
 
 def help():
     print ('\nmasala-lang (0.0.1)\n')
-    print ('usage: masala <filename>.masala <buffer length>')
-    print ('example: masala hello.masala 100')
+    print ('usage: masala <filename>.masala')
+    print ('example: masala hello.masala')
 
 def main():
-    if len(argv) == 3:
+    if len(argv) == 2:
         filename = argv[1]
-        param = int(argv[2])
         if filename[-7:] != '.masala':
             print("Invalid filename provided!")
             help()
@@ -46,7 +48,7 @@ def main():
                     print("Syntax Error!")
                     exit(1)
                 else:
-                    parse(program, param)
+                    parse(program)
     else:
         help()
 
