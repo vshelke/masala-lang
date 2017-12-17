@@ -12,21 +12,38 @@ It is yet another array based programming language which includes an array and a
 | mAsala  | decrease current pointer by 1                   |
 | maSala  | increase value at current pointer by 1          |
 | masAla  | decrease value at current pointer by 1          |
-| masaLa  | input 1 character at current pointer from STDIN |
-| masalA  | output 1 character at current pointer to STDOUT |
+| masaLa  | input 1 number at current pointer from STDIN    |
+| masalA  | output 1 number at current pointer to STDOUT    |
+| maSAla  | output 1 ASCII at current pointer to STDOUT     |
+
 
 # example
 
-##### test.masala
+##### io.masala
 
 ```
-masala maSala maSala maSala masalA Masala maSala maSala
-maSala masalA Masala masalA Masala maSala masalA
+masaLa Masala masaLa Masala masaLa Masala masaLa Masala masaLa Masala
+masaLa Masala masaLa Masala masaLa Masala masaLa Masala masaLa Masala
+maSAla mAsala maSAla mAsala maSAla mAsala maSAla mAsala maSAla mAsala
+maSAla mAsala maSAla mAsala maSAla mAsala maSAla mAsala maSAla mAsala
+maSAla mAsala
 ```
 
 ##### run
 
-```./masala.py test.masala```
+```
+./masala.py io.masala
+```
 
-> masala
-> 3301
+| input       | output               |
+|-------------|----------------------|
+| helloworld  | dlrowolleh           |
+
+
+```
+./masala.py masala.masala
+```
+
+| input       | output               |
+|-------------|----------------------|
+|             | masala               |

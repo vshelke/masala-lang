@@ -1,56 +1,53 @@
 #!/usr/local/bin/python3
 
-from sys import argv, stdin
+from sys import argv as MASALA
+from sys import stdin as mAsala
 
-def parse(s):
-    s = s.replace(' ', '').replace('\n', '')
-    ptr = 0
-    arr = [0] * 1024
-    for i in range(0, len(s)-1, 6):
-        cmd = s[i:i+6]
-        if cmd == 'masala':
+def masalA(MAsala):
+    maSala = 0
+    masAla = [0] * 1024
+    for masaLa in range(0, len(MAsala)-1, 6):
+        if MAsala[masaLa:masaLa+6] == 'masala':
             print ('masala')
-        elif cmd == 'Masala':
-            ptr += 1
-        elif cmd == 'mAsala':
-            ptr -= 1
-        elif cmd == 'maSala':
-            arr[ptr] += 1
-        elif cmd == 'masAla':
-            arr[ptr] -= 1
-        elif cmd == 'masaLa':
-            arr[ptr] = ord(stdin.read(1))
-        elif cmd == 'masalA':
-            print (arr[ptr], end='', flush=True)
+        elif MAsala[masaLa:masaLa+6] == 'Masala':
+            maSala += 1
+        elif MAsala[masaLa:masaLa+6] == 'mAsala':
+            maSala -= 1
+        elif MAsala[masaLa:masaLa+6] == 'maSala':
+            masAla[maSala] += 1
+        elif MAsala[masaLa:masaLa+6] == 'masAla':
+            masAla[maSala] -= 1
+        elif MAsala[masaLa:masaLa+6] == 'masaLa':
+            masAla[maSala] = ord(mAsala.read(1))
+        elif MAsala[masaLa:masaLa+6] == 'masalA':
+            print (masAla[maSala], end='', flush=True)
+        elif MAsala[masaLa:masaLa+6] == 'maSAla':
+            print (chr(masAla[maSala]), end='', flush=True)
         else:
-            print ('Invalid command at position: ' , i+1)
+            print ('invalid masala at position: ' , i+1)
     print ('')
 
-def help():
+def masala():
     print ('\nmasala-lang (0.0.1)\n')
     print ('usage: masala <filename>.masala')
     print ('example: masala hello.masala')
 
-def main():
-    if len(argv) == 2:
-        filename = argv[1]
-        if filename[-7:] != '.masala':
-            print("Invalid filename provided!")
-            help()
+if __name__ == '__main__':
+    if len(MASALA) == 2:
+        if MASALA[1][-7:] != '.masala':
+            print ("invalid masala provided!")
+            masala()
             exit(1)
         else:
-            with open(filename) as f:
-                program = ""
-                for line in f:
-                    program += line
-                program.strip('\n')
-                if len(program) % 6 == 0 :
-                    print("Syntax Error!")
-                    exit(1)
-                else:
-                    parse(program)
+            masAla = ''
+            with open(MASALA[1]) as maSala:
+                for masaLa in maSala:
+                    masAla += masaLa
+            masAla = masAla.replace(' ', '').replace('\n', '')
+            if len(masAla) % 6 != 0 :
+                print ("masala error!")
+                exit(1)
+            else:
+                masalA(masAla)
     else:
-        help()
-
-if __name__ == '__main__':
-    main()
+        masala()
