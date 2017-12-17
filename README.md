@@ -20,7 +20,8 @@ It is yet another array based programming language which includes an array and a
 ##### test.masala
 
 ```masala maSala maSala maSala masalA Masala maSala maSala
-maSala masalA Masala masalA Masala maSala masalA```
+maSala masalA Masala masalA Masala maSala masalA
+```
 
 ##### run
 
